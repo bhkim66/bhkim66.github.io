@@ -1,4 +1,4 @@
-# Java Spring Boot에서 if-else문 줄이기
+# Java에서 if-else문 줄이기
 
 If-else 문은 흔하지만 남용되면 복잡하고 유지보수가 어려운 코드로 이어질 수 있다!
 
