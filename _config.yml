@@ -25,10 +25,11 @@ title:                 김병호 블로그
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  개발자 김병호 블로그 입니다.
+  Hydejack is a boutique Jekyll theme for hackers, nerds, and academics,
+  with a focus on personal sites that are meant to impress.
 
 # A shorter description for the sidebar.
-tagline:               bhmklnj63@gmail.com
+tagline:               개발자 김병호의 블로그 입니다
 
 # A list of keywords for your blog
 keywords:              []
@@ -41,7 +42,7 @@ keywords:              []
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
-  name:                bhkim62
+  name:                <firstname> <lastname>
   email:               bhmklnj63@gmail.com
   # # Used by `jekyll-seo-tag`:
   # twitter:             <username>
@@ -50,14 +51,12 @@ author:
 menu:
   - title:             개발 저장소
     url:               /chapter1/
-
-#menu:
-#  - title: Example
-#    url: /example/
-#  - title: Documentation
-#    url: /docs/
-#  - title: About
-#    url: /about/
+  - title:             좋은 개발 글
+    url:               /chapter2/
+#  - title:             Documentation
+#    url:               /docs/
+#  - title:             About
+#    url:               /about/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -70,7 +69,7 @@ legal:
     url:               /CHANGELOG/
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2025. All rights reserved.
+copyright:             © 2024. All rights reserved.
 
 # Format of the permalinks
 permalink:             /:categories/:year-:month-:day-:title/
@@ -84,8 +83,7 @@ paginate_path:         /:num/
 # ---------------------------------------------------------------------------------------
 
 # This will use the gem `jekyll-theme-hydejack`, as defined in the sibling `Gemfile`.
-#theme: jekyll-theme-hydejack
-remote_theme: hydecorp/hydejack@v9
+theme: jekyll-theme-hydejack
 
 # You can uncomment `theme` above and replace it with `remote_theme` here iff you are using the 
 # `jekyll-remote-theme` plugin (which is the case when using the legacy GitHub Pages pipeline).
