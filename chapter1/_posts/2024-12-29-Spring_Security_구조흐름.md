@@ -33,8 +33,7 @@
 7. `User`객체의 정보들을 `UserDetails`가 `UserdetailsService`로 전달
     - `AuthenticationProvider`들은 `UserDetails`를 넘겨 받고 사용자 정보를 비교한다
 
-     ![image5.png](..%2F..%2Fassets%2Fimg%2Fspring_security%2Fimage5.png) 
-
+     ![image5.png](..%2F..%2Fassets%2Fimg%2Fspring_security%2Fimage5.png)
     - `AuthenticationProvider` 리스트를 순회하며 인증을 요청을 한다
 8. 인증 객체 or exception
     - 인증이 완료되면 권한 등의 사용자 정보를 담은 `Authentication` 객체를 반환한다
