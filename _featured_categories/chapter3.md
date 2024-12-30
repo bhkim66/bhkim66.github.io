@@ -3,14 +3,14 @@
 layout: list
 
 # The title of the tag's page.
-title: 공부 저장소
+title: 좋은 개발 글
 
 # The name of the tag, used in a post's front matter (e.g. tags: [<slug>]).
-slug: chapter2
+slug: chapter3
 
 # (Optional) Write a short (~150 characters) description of this featured tag.
 description: >
-  공부 정리함
+  좋은 개발 글
 
 # (Optional) You can disable grouping posts by date.
 # no_groups: true
