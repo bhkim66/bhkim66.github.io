@@ -4,7 +4,7 @@
 
 이때 지속적인 통합과 배포를 위해서 CI/CD를 지원하는 `Jenkins`를 이용해서 서버에 배포해보도록 하겠다
 
-[Jenkins란](..%2F..%2F..%2Fchapter2%2F_posts%2Fjenkins%2F2024-12-4-Jenkins.md)
+[Jenkins란](/chapter2/_posts/jenkins/2024-12-4-Jenkins.md)
 
 ## 1. Jenkins 이미지를 받아 도커 컨테이너를 생성
 
@@ -33,7 +33,7 @@ docker run -d -p 8888:8080 -p 50001:50000 --restart=on-failure --name auth-backe
 
 이후 컨테이너를 확인하면
 
-![docker_jenkins_1_1.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_1.png)
+![docker_jenkins_1_1.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_1.png)
 
 - `auth-backend` 컨테이너가 실행중인걸 확인할 수 있다
     - 방금 시작했기 때문에 `STAUTS`가 최근임을 알 수 있다
@@ -42,25 +42,25 @@ docker run -d -p 8888:8080 -p 50001:50000 --restart=on-failure --name auth-backe
 
 내가 설정한 http://localhost:8888로 접속해보면
 
-![docker_jenkins_1_2.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_2.png)
+![docker_jenkins_1_2.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_2.png)
 
 해당 페이지가 나오게 된다
 
 페이지에서 알려주는 경로로 이동해 비밀번호를 입력해주면 된다
 
-![docker_jenkins_1_3.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_3.png)
+![docker_jenkins_1_3.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_3.png)
 
 이후 모든 플러그인을 설치한다
 
-![docker_jenkins_1_4.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_4.png)
+![docker_jenkins_1_4.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_4.png)
 
 이후 계정 생성을 요청하는 페이지에서 계정을 생성한다
 
-![docker_jenkins_1_5.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_5.png)
+![docker_jenkins_1_5.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_5.png)
 
 이후 메뉴에서 새로운 Item 메뉴를 선택해 새로운 프로젝트를 생성한다
 
-![docker_jenkins_1_6.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_6.png)
+![docker_jenkins_1_6.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_6.png)
 
 프로젝트 이름을 선택하고 freestyle project를 생성한다
 
@@ -68,18 +68,18 @@ docker run -d -p 8888:8080 -p 50001:50000 --restart=on-failure --name auth-backe
 
 소스코드 관리에서 Git을 선택 후 리포지토리 주소를 입력해준다
 
-![docker_jenkins_1_7.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_7.png)
+![docker_jenkins_1_7.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_7.png)
 
 - Github 정보 입력후 빌드 유발에서 GitHub hook trigger for GITScm polling 선택
     - Github의 hook trigger을 받으면 빌드를 하겠다는 뜻이다
 
-![docker_jenkins_1_8.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_8.png)
+![docker_jenkins_1_8.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_8.png)
 
 - 목록중에 `Excute shell`을 선택한다
 - 빌드 단계에서 실행할 `profile`을 `dev`로 지정했다
 - gradle로 빌드 후 war 파일이 생성되면 auth-backend 라는 이름으로 변경하도록 했다
 
-![docker_jenkins_1_9.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_9.png)
+![docker_jenkins_1_9.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_9.png)
 
 - 빌드 후 조치에서 `Deploy war/ear to a container` 선택 빌드 후 배포까지 진행했다
 - `“**/”.war”`
@@ -89,19 +89,19 @@ docker run -d -p 8888:8080 -p 50001:50000 --restart=on-failure --name auth-backe
 
 저장 후 apply를 하고 지금 빌드를 실행해서 빌드에 성공하면 이런 ui를 확인 할 수 있다
 
-![docker_jenkins_1_10.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_10.png)
+![docker_jenkins_1_10.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_10.png)
 
 빌드 시 발생한 로그는 좌측 메뉴에서 확인 할 수 있다
 
-![docker_jenkins_1_11.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_11.png)
+![docker_jenkins_1_11.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_11.png)
 
 내부 서버에 war 파일이 생성되고 디렉토리가 생성되면서 배포에 성공한다
 
-![docker_jenkins_1_12.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_12.png)
+![docker_jenkins_1_12.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_12.png)
 
-![docker_jenkins_1_13.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_13.png)
+![docker_jenkins_1_13.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_13.png)
 
-![docker_jenkins_1_14.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_14.png)
+![docker_jenkins_1_14.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_14.png)
 
 ## 3. Redis 컨테이너 구성
 
@@ -123,7 +123,7 @@ $ docker run -p 6379:6379 --name redis-server -d redis:latest
 
 Docker 네트워크는 기본적으로 생성되는 `bridge` 네트워크 외에도, 사용자가 직접 생성할 수도 있다
 
-![docker_jenkins_1_15.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_15.png)
+![docker_jenkins_1_15.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_15.png)
 
 ```bash
 docker network connect auth-network redis-server
@@ -132,7 +132,7 @@ docker network connect auth-network auth-backend
 
 **docker network connect {네트워크명} {컨테이너명}**을 입력해 컨테이너와 네트워크를 연결한다.
 
-- [Docker 네트워크](..%2F..%2F..%2Fchapter2%2F_posts%2Fdocker%2F2024-12-17-Docker_%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.md)
+- [Docker 네트워크](/chapter2/_posts/docker/2024-12-17-Docker_네트워크.md)
 
 ```bash
 docker network inspect auth-network
@@ -140,13 +140,13 @@ docker network inspect auth-network
 
 - 두 컨테이너를 연결한 `auth-network`의 세부 정보를 출력하면
 
-![docker_jenkins_1_16.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_16.png)
+![docker_jenkins_1_16.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_16.png)
 
 - 위 그림과 같이 `auth-backend`와 `redis-server` 컨테이너가 속해있는 것을 확인할 수 있다
 
 ## 3-1. Compose 파일 구성
 
-**[Docker Compose란?](..%2F..%2F..%2Fchapter2%2F_posts%2Fdocker%2F2024-12-17-Docker_Compose.md)**
+**[Docker Compose란?](/chapter2/_posts/docker/2024-12-17-Docker_Compose.md)**
 
 **redis Dockerfile 구성**
 
@@ -212,7 +212,7 @@ networks:
     - 외부 호스트 서버에 접근할 수 있게 추가했다
 - `networks: jenkins-redis-networks:` : Jenkins 컨테이너redis 컨테이너로 요청이 있기 때문에 서로 같은 네트워크로 구성했다
 
-  ![docker_jenkins_1_17.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_17.png)
+  ![docker_jenkins_1_17.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_17.png)
 
     - 컨테이너는 원래 `docker0` 이라는 기본 브릿지를 통해 외부와 통신하게 된다
     - `eth0` : 호스트의 eth0은 실제 외부와 연결할 때 사용하는 ip가 할당된 호스트 네트워크 인터페이스이다
@@ -220,17 +220,17 @@ networks:
         - 이 veth를 호스트의 eth0과 연결시키므로써 외부와 통신이 가능하다
     - `docker0` : 도커가 설치될 때, 기본적으로 구성되는 브릿지이다. 이 브릿지의 역할은 호스트의 네트워크인 `eth0`과 컨테이너의 네트워크와 연결을 해주는 역할을 한다
 
-  ![docker_jenkins_1_18.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_18.png)
+  ![docker_jenkins_1_18.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_18.png)
 
     - 이렇게 새로운 브릿지로 컨테이너를 연결해주면 컨테이너 간의 서로 통신이 가능하다
 
 ## 4. Pipeline 구축
 
-* [pipeline](..%2F..%2F..%2Fchapter2%2F_posts%2Fjenkins%2F2024-12-6-pipeline.md) 
+* [pipeline](/chapter2/_posts/jenkins/2024-12-6-pipeline.md) 
 
 new Item에서 Pipeline을 선택한다
 
-![docker_jenkins_1_18.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_18.png)
+![docker_jenkins_1_18.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_18.png)
 
 ```groovy
 pipeline {
@@ -297,7 +297,7 @@ sudo apt install openssh-server
 sudo ufw allow 22
 ```
 
-![docker_jenkins_1_19.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_19.png)
+![docker_jenkins_1_19.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_19.png)
 
 이후 Jenkins 서버에 접속해 내 호스트 서버와의 통신을 위한 설정을 한다
 
@@ -316,17 +316,17 @@ ssh-copy-id bhkim@172.23.158.28
 
 모든 설정을 마치고 Jenkins에 빌드를 실행하면 빌드 및 배포에 성공한다
 
-![docker_jenkins_1_20.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_20.png)
+![docker_jenkins_1_20.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_20.png)
 
 - Stage View 또한 Plugin에서 다운로드 받아 사용해야 한다
 
 ### ※ 추가 push시와 동시에 pipeline 실행하기
 
-![docker_jenkins_1_21.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_21.png)
+![docker_jenkins_1_21.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_21.png)
 
 - 빌드가 완료된 이후 Gtihub webhook 기능을 통해 코드가 push 이벤트가 발생하면 이를 감지해 자동으로 빌드 및 배포를 실행한다
 
-![docker_jenkins_1_22.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_22.png)
+![docker_jenkins_1_22.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_22.png)
 
 - Github Setting에서 Webhooks 메뉴를 선택한다
 - Jenkins가 설치된 URL을 입력 후 뒤에 `/github-webhook/` path를 추가한다
@@ -346,11 +346,11 @@ ngrok http 8888
 
 - Jenkins가 설치된 포트를 임시 도메인을 연결하여 외부에서 접근할 수 있도록 한다
 
-![docker_jenkins_1_23.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_23.png)
+![docker_jenkins_1_23.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_23.png)
 
 - 임시 도메인이 localhost:8888로 향하는 것을 확인할 수 있다
 - 이후 push 이벤트가 발생하면 Jenkins가 동작하는 것을 확인할 수 있다
 
-![docker_jenkins_1_24.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater1%2Fdocker_jenkins%2Fdocker_jenkins_1_24.png)
+![docker_jenkins_1_24.png](/assets/img/chapter1/docker_jenkins/docker_jenkins_1_24.png)
 
 - Webhook 성공

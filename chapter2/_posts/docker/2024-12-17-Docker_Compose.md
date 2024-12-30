@@ -53,7 +53,7 @@ services:
     - `/var/lib/docker/volumes/`
 - `Voluem` 마운트는 아래의 경로에 `Volume`이 생성되고 해당 `Volume`을 도커와 연결시켜 관리하는 것이다
 
-![docker_compose_1.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater2%2Fdocker%2Fdocker_compose_1.png)
+![docker_compose_1.png](/assets/img/chpater2/docker/docker_compose_1.png)
 
 ### 바인드 마운트
 

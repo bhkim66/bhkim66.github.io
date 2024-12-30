@@ -87,7 +87,7 @@ class UserControllerTest {
 ```
 
 - 인증/인가 테스트는 Controller에 Request가 도달할 때 테스트가 되므로 `@WebMvcTest`를 진행했다
-    - [@WebMvcTest를 이용한 Controller테스트](..%2F..%2Fchapter2%2F_posts%2Ftdd%2F2024-12-14-WebMvcTest%EB%A5%BC_%EC%9D%B4%EC%9A%A9%ED%95%9C_Controller_%ED%85%8C%EC%8A%A4%ED%8A%B8.md)
+    - [@WebMvcTest를 이용한 Controller테스트](/chapter2/_posts/tdd/2024-12-14-WebMvcTest를_이용한_Controller_테스트.md)
 - `@Import(WebSecurityConfig.class)` : 선언적 테스트를 위해서 config 파일을 import한다
 
     ```java
@@ -102,24 +102,24 @@ class UserControllerTest {
 
 - 테스트는 `@WithCustomMockUser` 어노테이션을 추가하지 않았기 때문에 인증된 객체가 없다
 
-![spring_security_3_1.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fauth_server%2Fspring_security_3_1.png)
+![spring_security_3_1.png](/assets/img/chapter1/auth_server/spring_security_3_1.png)
 
 - `AuthorizeHttpRequestsConfigurer` 클래스의 `hasAuthority()` 메소드에 인자값으로 넘어온 String을 초기값으로 가지는 **AuthorityAuthorizationManger** 객체를 생성한다
 
-![spring_security_3_2.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fauth_server%2Fspring_security_3_2.png)
+![spring_security_3_2.png](/assets/img/chapter1/auth_server/spring_security_3_2.png)
 
 - 이후 **RequestMatcherDelegatingAuthorizationManager** 클래스에서 check 메소드를 통해 가장 적절한 Manager를 통해 인증/인가 체크를 한다
 
-![spring_security_3_3.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fauth_server%2Fspring_security_3_3.png)
+![spring_security_3_3.png](/assets/img/chapter1/auth_server/spring_security_3_3.png)
 
 - 요청 request 패턴과 **RequestMatcherDelegatingAuthorizationManager**에 전달된 ****매핑 값들 중에 있기 때문에 해당 인자값으로 넘어온 “ROLE_USER” 값이 있는지 체크하게 된다
 - .requestMatchers("/user/**").hasAnyAuthority(USER.getValue())
 
-![spring_security_3_4.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fauth_server%2Fspring_security_3_4.png)
+![spring_security_3_4.png](/assets/img/chapter1/auth_server/spring_security_3_4.png)
 
 - 해당 테스트는 인증 및 인가 값이 없는 User의 테스트 이므로 `false`와 `AuthorizationDecision` 값을 반환하게 된다
 
-![spring_security_3_5.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fauth_server%2Fspring_security_3_5.png)
+![spring_security_3_5.png](/assets/img/chapter1/auth_server/spring_security_3_5.png)
 
 - 401 오류가 발생하면서 테스트에 성공한다
 
@@ -127,15 +127,15 @@ class UserControllerTest {
 
 - `@WithCustomMockUser` 어노테이션을 추가하여 임시 인증 정보를 주입했다
 
-![spring_security_3_6.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fauth_server%2Fspring_security_3_6.png)
+![spring_security_3_6.png](/assets/img/chapter1/auth_server/spring_security_3_6.png)
 
 - `check()` 결과 값으로 true와 `AuthorizationDecision` 반환해준다
 
-![spring_security_3_7.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fauth_server%2Fspring_security_3_7.png)
+![spring_security_3_7.png](/assets/img/chapter1/auth_server/spring_security_3_7.png)
 
 - 200 리턴해주면서 테스트 성공했다
 
-![spring_security_3_8.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fauth_server%2Fspring_security_3_8.png)
+![spring_security_3_8.png](/assets/img/chapter1/auth_server/spring_security_3_8.png)
 
 ### 권한이 없는 요청
 
@@ -151,8 +151,8 @@ public enum RoleEnum {
 
 - `@WithCustomMockUser`의 role 인자 값을 `GUEST`으로 전달한다
 
-![spring_security_3_9.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fauth_server%2Fspring_security_3_9.png)
+![spring_security_3_9.png](/assets/img/chapter1/auth_server/spring_security_3_9.png)
 
 - 권한이 false를 반환하면서 Forbidden 접근 거부 예외가 발생하면서 테스트에 성공한다
 
-![spring_security_3_10.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fauth_server%2Fspring_security_3_10.png)
+![spring_security_3_10.png](/assets/img/chapter1/auth_server/spring_security_3_10.png)

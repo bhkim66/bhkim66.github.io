@@ -1,7 +1,7 @@
 # 1.Spring Security, 프로젝트 구성
 
 ### 인증 흐름
-![spring_security_1_1.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fspring_securtiy%2Fspring_security_1_1.png)
+![spring_security_1_1.png](/assets/img/chapter1/auth_server/spring_security_1_1.png)
 - Refresh Token 값을 저장하기 위해 메모리 저장소인 `Redis`를 사용했다
 - 재발급 API 요청 시 일반 DB에서 유저 정보를 가져오는 대신 Redis에서 가져온다
 - **장점**:
@@ -23,14 +23,14 @@
 
 기본적으로 HTTP 통신을 통한 요청/응답을 처리하고 있기 때문에 `Stateless` 한 토큰 방식의 인증 방식을 채택, JWT 토큰 방식을 사용 할 것이다
 
-- [Stateless, Stateful, 세션, 토큰](https://www.notion.so/Stateless-Stateful-15898c0750f080e1864bc99f5c6860e2?pvs=21)
+- [Stateless, Stateful, 세션, 토큰](/chapter2/_posts/security/2024-12-9-Stateless_Stateful_%EC%84%B8%EC%85%98_%ED%86%A0%ED%81%B0.md)
 - 위 글에서 확인 했듯이 토큰은 DB에 따로 저장하지 않아도 되고 `Stateless` 한 특성을 가지고 있어 장점이 많다
 - 하지만 토큰이 탈취될 경우 탈취한 공격자가 탈취한 토큰 정보를 가지고 피해자 행세를 할 수 있기 때문에 토큰에는 만료시간을 지정해서 관리할 필요가 있다
 - `AccessToken` 같은 경우는 인증을 위해 주로 사용되는 토큰이기 때문에 짧은 시간을 지정하는 것이 좋고 `RefreshToken`은 토큰을 재발급 받기 위한 토큰이기 때문에 좀 더 여유로운 시간을 지정해도 괜찮다
     - 이 프로젝트에서는 `AccessToken`은 30분 `RefreshToken`은 24시간만 유효하게 설정했다
     - Redis에도 24시간 뒤면 Expire 되게 설정했다
 
-      ![spring_security_1_2.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fspring_securtiy%2Fspring_security_1_2.png)
+      ![spring_security_1_2.png](/assets/img/chapter1/auth_server/spring_security_1_2.png)
 
 ### 스프링 시큐리티 설정
 
@@ -92,7 +92,7 @@ public class WebSecurityConfig {
 ```
 
 1. `corsConfigurationSource()` : `CORS` 허용 범위를 설정하기 위한 설정이다
-    - [CORS란?](..%2F..%2Fchapter2%2F_posts%2F2024-12-11-CORS.md)
+    - [CORS란?](/chapter2/_posts/security/2024-12-11-CORS.md)
     - CORS 허용 범위를 와일드카드 `*` 로 설정하면 보안에 취약하기 때문에 직접 허용할 출처를 세팅하는 방법이 좋다
 2. `"/auth"`, `"/public"` 으로 들어오는 요청은 모두 permitAll(), 접근을 허용해주었다
     - 권한 없이 실행 되야하거나, 인증이 따로 필요 없는 API들이다. 그 외는 모두 인증을 받아야 한다
@@ -404,7 +404,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 - 인증되지 않는 요청에 관해서 처리하는 클래스이다
 - `setErrorResponse()` 동일한 결과 형태를 반환하기 위해 커스텀한 `response` 형태로 반환해준다
 
-![spring_security_1_3.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fspring_securtiy%2Fspring_security_1_3.png)
+![spring_security_1_3.png](/assets/img/chapter1/auth_server/spring_security_1_3.png)
 - 인증 예외 발생 후 `AuthenticationEntryPoint`를 구현해서 오류 처리를 한다
 
 **JwtExceptionFilter**
@@ -444,5 +444,5 @@ public class JwtExceptionFilter extends OncePerRequestFilter {
 - `filterChain.doFilter()`에서 발생하는 모든 오류처리를 하는 필터를 추가했다
 - `setErrorResponse()` 동일한 결과 형태를 반환하기 위해 커스텀한 `response` 형태로 반환해준다
 
-**[Redis 연동](..%2F..%2Fchapter2%2F_posts%2F2024-12-10-Redis_%EC%97%B0%EB%8F%99.md)**
+- **[Redis 연동](/chapter1/_posts/auth-server/2024-12-10-Redis_%EC%97%B0%EB%8F%99.md)**
 

@@ -80,7 +80,7 @@ public interface UserService {
 
 - 앞서 Config 파일에서 url 기반의 인증/인가 검사를 하기 때문에 `AuthService`는 인증이 필요 없는 `UserService`는 인증/인가가 필요한 기능들로 구성했다
 
-  ![spring_security_2_1.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fspring_securtiy%2Fspring_security_2_1.png)
+  ![spring_security_2_1.png](/assets/img/chapter1/auth_server/spring_security_2_1.png)
 
 
 **User**
@@ -222,14 +222,14 @@ public class AuthRequestDTO {
 2. `AuthenticationManagerBuilder` 는 따로 설정을 해주지 않아도 어플리케이션 구동 시 Spring의 auto-configuration을 통해 자동으로 의존성이 주입되 간편한 사용이 가능하다
     - `AuthenticationManagerBuilder.getObject()`메서드를 통해 `AuthenticationManager`로 실제 인증을 수행한다
 
-      ![spring_security_2_2.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fspring_securtiy%2Fspring_security_2_2.png)
+      ![spring_security_2_2.png](/assets/img/chapter1/auth_server/spring_security_2_2.png)
 
         - `AuthenticationManger`을 구현한 `ProviderManger`가 검증을 시도한다
         - `DaoAuthenticationProvider`가 검증을 위해 `loadUserbyUsername`() 메소드를 호출한다
 
-      ![spring_security_2_3.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fspring_securtiy%2Fspring_security_2_3.png)
+      ![spring_security_2_3.png](/assets/img/chapter1/auth_server/spring_security_2_3.png)
 
-      ![spring_security_2_4.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fspring_securtiy%2Fspring_security_2_4.png)
+      ![spring_security_2_4.png](/assets/img/chapter1/auth_server/spring_security_2_4.png)
 
         - `CustomUserDetailsService`에서 재구현한 `loadUserByUsername()`을 호출하여 DB로 부터 User 정보를 가져간다
 3. `jwtTokenProvider.generateToken()` 내부클래스인 `PrivateClaims` 클래스 형태로 인자값을 넘겨Jwt 토큰 형태의 `AccessToken`과  `RefreshToken`을 반환 받는다
@@ -338,7 +338,7 @@ class AuthServiceTest {
 
 **실제 PostMan으로 요청했을 때**
 
-![spring_security_2_5.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fspring_securtiy%2Fspring_security_2_5.png)
+![spring_security_2_5.png](/assets/img/chapter1/auth_server/spring_security_2_5.png)
 
 ### 회원가입 구현
 
@@ -391,7 +391,7 @@ public class AuthRequestDTO {
 ```
 
 1. 클라리언트로 받은 데이터 유효성 검사를 위해 `jakarta.validation` 패키지를 사용했다
-    - [스프링_Validation](..%2F..%2Fchapter2%2F_posts%2F2024-12-2-%EC%8A%A4%ED%94%84%EB%A7%81_Validation.md)
+    - [스프링_Validation](/chapter2/_posts/spring/2024-12-2-%EC%8A%A4%ED%94%84%EB%A7%81_Validation.md)
 2. DTO 형태로 전달받은 request를 DB에 저장하기 위해 User Entity 형태로 변환한다
 
 **회원가입 TEST**
@@ -422,7 +422,7 @@ void 회원가입() {
 
 - 회원가입 메소드 실행 후 `userRepository.findById()`를 통해서 request으로 보낸 userId 값으로 DB에 조회한다
 
-![spring_security_2_6.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fspring_securtiy%2Fspring_security_2_6.png)
+![spring_security_2_6.png](/assets/img/chapter1/auth_server/spring_security_2_6.png)
 
 - 로그를 살펴보면 insert문이 제대로 들어간 것을 볼 수 있다
 
@@ -623,6 +623,6 @@ void 토큰재발급_성공() throws Exception {
     - `RequestContextHolder`는 Spring 컨텍스트에서 `HttpServletRequest`에 직접 접근 할 수 있도록 도와주는 역할을 한다.
 4. 토큰은 현재 시간값으로 생성되는 값이 다르기 때문에 1초 여유를 두고 `reissueToken()` 메소드를 실행한다
 
-![spring_security_2_7.png](..%2F..%2Fassets%2Fimg%2Fchpater1%2Fspring_securtiy%2Fspring_security_2_7.png)
+![spring_security_2_7.png](/assets/img/chapter1/auth_server/spring_security_2_7.png)
 
 - 테스트 결과 기존 AccessToken값과 새로 받은 값이 다른것을 볼 수 있다

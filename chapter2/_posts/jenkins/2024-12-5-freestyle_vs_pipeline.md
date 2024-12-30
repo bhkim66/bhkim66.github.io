@@ -4,7 +4,7 @@
 
 - `Freestyle project`는 jenkins에서 기본 틀을 정해주고 안에 빈칸을 채우는 형식으로 프로세스 흐름을 정의하는 방식이다
 
-![jenkins_2_1.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater2%2Fjenkins%2Fjenkins_2_1.png)
+![jenkins_2_1.png](/assets/img/chpater2/jenkins/jenkins_2_1.png)
 
 - `freestyle`의 설정화면
 - 각 단계에서 형상 관리 도구와 어떻게 연결을 할 지 또는 빌드, 테스트 등의 구체적인 세부 내용은 어떻게 되는지를 직접 작성해 주면 된다
@@ -23,7 +23,7 @@
 
 - `Jenkins`에서의 `Pipeline`은 한 곳에서부터 작업을 시작해서 일렬로 혹은 여러 갈래로 뻗어져 나갔다가(`병렬처리`) 다시 한 쪽으로 모이면서 마무리되는 방식의 작업 흐름을 의미한다
 
-![jenkins_2_2.png](..%2F..%2F..%2Fassets%2Fimg%2Fchpater2%2Fjenkins%2Fjenkins_2_2.png)
+![jenkins_2_2.png](/assets/img/chpater2/jenkins/jenkins_2_2.png)
 
 **장점**
 
