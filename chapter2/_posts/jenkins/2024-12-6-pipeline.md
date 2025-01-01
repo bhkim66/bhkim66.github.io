@@ -228,3 +228,5 @@ stage('Parallel Stage') {
 `parallel` : 파이프라인이 평행 실행을 할 수 있게 해준다
 
 `when`: 조건문으로 사용할 때 사용한다
+
+참고 - 인프런 / Jenkins를 이용한 CI/CD Pipeline 구축
