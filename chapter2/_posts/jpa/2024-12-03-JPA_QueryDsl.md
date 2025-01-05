@@ -602,3 +602,6 @@ public Page<MemberTeamDto> searchPageComplex(MemberSearchCondition condition, Pa
 - `PageableExecutionUtils`를 사용하여 count 쿼리가 생략 가능할 경우 생략해서 처리한다
     - 페이지 시작이면서 컨텐츠 사이즈 페이지 사이즈보다 작을 때
     - 마지막 페이지 일 때 (offset + 컨텐츠 사이즈를 더해서 전체 사이즈를 구함)
+
+참고
+인프런 - 실전! Querydsl
