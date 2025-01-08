@@ -18,7 +18,7 @@
 
 - 실제 운용되는 서비스에서는 데이터베이스의 장애를 빠르게 복구하고, 트래픽을 분산하기 위해 실시간 복제본 데이터베이스를 운용하는 `레플리케이션(Replication)` 방식을 사용할 수 있다
 
-    ![spring_data_jpa_2_3](/assets/img/chpater2/jpa/jpa_2_3.png)
+    ![spring_data_jpa_2_3](/assets/img/chapter2/jpa/jpa_2_3.png)
 
 - 레플리케이션은 `Master-Slave` 구조로 복제본 DB를 함께 운용함으로써, `Master DB`의 장애 발생 시 `Slave DB`를 `Master DB`로 승력시켜 장애를 빠르게 복구할 수 있으며, 조회 작업은 `Slave DB`에서 수행하고 수정 작업은 `Master DB`에서 수행함으로써 트래픽을 분산할 수 있다는 장점이 있다
 - 이러한 데이터베이스 구조를 가져갈 때, readOnly = true가 설정되어있는 메서드의 경우 `Slave DB`에서 데이터를 가져오도록 동작한다. 이를 통해 레플리케이션의 목적에 맞게 트래픽 분산을 온전하게 적용할 수 있다는 추가적인 이점이 존재한다.

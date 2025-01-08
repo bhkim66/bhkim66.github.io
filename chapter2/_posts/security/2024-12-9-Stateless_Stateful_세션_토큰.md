@@ -40,7 +40,7 @@
 
 ### JWT의 구조
 
-![jwt_1.png](/assets/img/chpater2/jwt/jwt_1.png)
+![jwt_1.png](/assets/img/chapter2/jwt/jwt_1.png)
 
 ### 헤더 (Header)
 

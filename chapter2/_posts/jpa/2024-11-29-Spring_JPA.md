@@ -14,7 +14,7 @@
 
 이 외에 스프링 데이터 프로젝트는 JPA, 몽고 DB, NEO4J, REDIS, HADOOP 등 다양한 데이터 저장소에 대한 접근을 추상화해서 개발자 편의를 제공한다
 
-![spring_data_jpa_2_1](/assets/img/chpater2/jpa/jpa_2_1.png)
+![spring_data_jpa_2_1](/assets/img/chapter2/jpa/jpa_2_1.png)
 
 ### JpaRepository
 
@@ -253,7 +253,7 @@ class testService {
 
 - 트랜잭션을 비즈니스 계층에서만 사용하고 뷰나 컨트롤러 단에서는 사용이 불가능하다
 
-![spring_data_jpa_2_2](/assets/img/chpater2/jpa/jpa_2_2.png)
+![spring_data_jpa_2_2](/assets/img/chapter2/jpa/jpa_2_2.png)
 
 1. 클라이언트 요청이 들어오면 서블릿 필터나, 스프링 인터셉터에서 영속성 컨텍스트를 생성한다. **이때 트랜잭션은 시작하지 않는다**
 2. 서비스 계층에서 `@Transcational`로 트랜잭션을 시작할 때 1번에서 미리 생성해둔 영속성 컨텍스트를 찾아와서 트랜잭션을 시작한다

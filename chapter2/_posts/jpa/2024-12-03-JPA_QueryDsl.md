@@ -556,7 +556,7 @@ private BooleanExpression allEq(String usernameCond, Integer ageCond) {
         - DML문을 실행할 땐 영향받은 행 수를 반환한다
         - DDL문을 실행할 땐 0을 반환한다 (MSSQL 드라이버 기준)
 
-![jpa_3_1](/assets/img/chpater2/jpa/jpa_3_1.png)
+![jpa_3_1](/assets/img/chapter2/jpa/jpa_3_1.png)
 
 - `MemberRepository`에 `JpaRepository`와 `MemberRepositoryCustom`을 다중 상속받아 SpringDataJPA 기능과 `MemberRepositoryCustom`의 구현체인 `MemberRepositoryCustomImpl`에서 구현한 메서드를 사용한다.
 - 사용자 정의 클래스인 경우 파일명이 `사용자 정의 인터페이스명 + Impl`인 클래스를 찾아 삽입해준다. 따라서, 사용자 정의 레포지토리 구현체의 파일명은 `인터페이스명 + Impl` 이여야 한다.
